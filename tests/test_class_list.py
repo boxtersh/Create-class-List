@@ -382,7 +382,7 @@ def test_count_entry_elem_memory_no_empty_4(lst):
     assert res == expected, f'Ожидали:{expected}, получили:{res}'
 
 
-def test_clear_elem_memory_empty(lst):
+def test_clear_memory_empty(lst):
     expected = [None, None, None, None, None]
 
     lst.clear()
@@ -392,7 +392,7 @@ def test_clear_elem_memory_empty(lst):
     assert res == expected, f'Ожидали:{expected}, получили:{res}'
 
 
-def test_clear_elem_memory_no_empty(lst):
+def test_clear_memory_no_empty(lst):
     expected = [None, None, None, None, None]
 
     lst.add(3), lst.add(3), lst.add(3)
@@ -403,7 +403,7 @@ def test_clear_elem_memory_no_empty(lst):
     assert res == expected, f'Ожидали:{expected}, получили:{res}'
 
 
-def test_lenght_elem_memory_empty(lst):
+def test_lenght_memory_empty(lst):
     expected = 0
 
     res = lst.lenght()
@@ -411,7 +411,7 @@ def test_lenght_elem_memory_empty(lst):
     assert res == expected, f'Ожидали:{expected}, получили:{res}'
 
 
-def test_lenght_elem_memory_no_empty_1(lst):
+def test_lenght_memory_no_empty_1(lst):
     expected = 1
 
     lst.add(3)
@@ -420,10 +420,27 @@ def test_lenght_elem_memory_no_empty_1(lst):
     assert res == expected, f'Ожидали:{expected}, получили:{res}'
 
 
-def test_lenght_elem_memory_no_empty_2(lst):
+def test_lenght_memory_no_empty_2(lst):
     expected = 4
 
     lst.add(1), lst.add(5), lst.add(0), lst.add(2)
     res = lst.lenght()
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_is_empty_memory_empty(lst):
+    expected = True
+
+    res = lst.is_empty()
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_is_empty_memory_no_empty(lst):
+    expected = False
+
+    lst.add(1), lst.add(5), lst.add(0)
+    res = lst.is_empty()
 
     assert res == expected, f'Ожидали:{expected}, получили:{res}'
