@@ -401,3 +401,29 @@ def test_clear_elem_memory_no_empty(lst):
     res = lst.memory
 
     assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_lenght_elem_memory_empty(lst):
+    expected = 0
+
+    res = lst.lenght()
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_lenght_elem_memory_no_empty_1(lst):
+    expected = 1
+
+    lst.add(3)
+    res = lst.lenght()
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_lenght_elem_memory_no_empty_2(lst):
+    expected = 4
+
+    lst.add(1), lst.add(5), lst.add(0), lst.add(2)
+    res = lst.lenght()
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
