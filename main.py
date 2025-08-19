@@ -208,4 +208,8 @@ class List:
     def get_count(self):
         return self.__count
 
+    def get_memory(self):
+        return self.__memory
+
     count = property(get_count)
+    memory = property(get_memory)
