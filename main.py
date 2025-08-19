@@ -174,8 +174,8 @@ class List:
         if self.__count == 0:
             return count_entries_elem_list
 
-        for lis_item in self.__memory:
-            if lis_item == elem:
+        for i in range(self.__count):
+            if self.__memory[i] == elem:
                 count_entries_elem_list += 1
 
         return count_entries_elem_list
@@ -192,7 +192,7 @@ class List:
         self.__size = 5
         self.__memory = malloc(self.__size)
 
-    def lenght(self) -> None:
+    def lenght(self) -> int:
         """
         Функция возвращает длину списка
         :return: длина списка
@@ -206,10 +206,7 @@ class List:
         [] -> False
         :return: булево значение
         """
-        if self.__count == 0:
-            return True
-
-        return False
+        return self.__count == 0
 
     def get_count(self):
         return self.__count
