@@ -96,3 +96,44 @@ def test_add_first_elem_more_memory_range_2(lst):
     res = lst.memory
 
     assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_remove_memory_empty(lst):
+    expected = None
+
+    res = lst.remove(1)
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_remove_memory_1(lst):
+    expected = [5, 0, 13, -7, None]
+
+    lst.add(1), lst.add(5), lst.add(0), lst.add(13), lst.add(-7)
+    lst.remove(1)
+
+    res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_remove_memory_2(lst):
+    expected = [1, 5, 13, -7, None]
+
+    lst.add(1), lst.add(5), lst.add(0), lst.add(13), lst.add(-7)
+    lst.remove(0)
+
+    res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_remove_memory_3(lst):
+    expected = [1, 5, 0, 13, None]
+
+    lst.add(1), lst.add(5), lst.add(0), lst.add(13), lst.add(-7)
+    lst.remove(-7)
+
+    res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
