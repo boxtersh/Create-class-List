@@ -56,3 +56,43 @@ def test_add_elem_more_memory_range_2(lst):
     res = lst.memory
 
     assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_add_first_elem_in_memory_range_1(lst):
+    expected = [1, None, None, None, None]
+
+    lst.add_first(1)
+
+    res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_add_first_elem_in_memory_range_2(lst):
+    expected = [-7, 13, 0, 5, 1]
+
+    lst.add_first(1), lst.add_first(5), lst.add_first(0), lst.add_first(13), lst.add_first(-7)
+
+    res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_add_first_elem_more_memory_range_1(lst):
+    expected = [2, -7, 13, 0, 5, 1, None]
+
+    lst.add_first(1), lst.add_first(5), lst.add_first(0)
+    lst.add_first(13), lst.add_first(-7), lst.add_first(2)
+    res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_add_first_elem_more_memory_range_2(lst):
+    expected = [0, 2, -7, 13, -6, 0, 5, 1, None, None]
+
+    lst.add_first(1), lst.add_first(5), lst.add_first(0), lst.add_first(-6)
+    lst.add_first(13), lst.add_first(-7), lst.add_first(2), lst.add_first(0)
+    res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
