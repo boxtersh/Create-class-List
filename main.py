@@ -30,6 +30,9 @@ class List:
         self.__size = 5
         self.__memory = malloc(self.__size)
 
+    def __check_type(self, elem, type_elem):
+        assert isinstance(elem, type_elem), f'Ожидали class:{type(type_elem)}, получили:{type(elem)}'
+
     def add(self, elem) -> None:
         """
         Функция добавляет элемент в конец списка
@@ -86,7 +89,7 @@ class List:
         :param index: индекс удаляемого элемента
         :return: значение элемента по index
         """
-        assert isinstance(index, int), f'Ожидали class: int, получили:{type(index)}'
+        self.__check_type(index, int)
 
         if self.__count == 0:
             return
@@ -110,6 +113,7 @@ class List:
         :param elem: Добавляемый элемент
         :return: None
         """
+        self.__check_type(index, int)
 
         if (index >= self.__count or index < 0) and self.__count < self.__size:
             self.__memory[self.__count] = elem

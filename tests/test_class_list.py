@@ -201,3 +201,108 @@ def test_pop_index_in_range_3(lst):
     res = lst.pop(4)
 
     assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_insert_index_no_int(lst):
+
+    with pytest.raises(AssertionError):
+        lst.insert('2', 5)
+
+
+def test_insert_index_out_range_in_memory_range_1(lst):
+    expected = [3, None, None, None, None]
+
+    lst.insert(14, 3)
+
+    res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_insert_index_out_range_in_memory_range_2(lst):
+    expected = [1, 5, 0, 13, 3]
+
+    lst.add(1), lst.add(5), lst.add(0), lst.add(13)
+    lst.insert(14, 3)
+
+    res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_insert_index_in_range_in_memory_range_1(lst):
+    expected = [3, 1, None, None, None]
+
+    lst.add(1)
+    lst.insert(0, 3)
+
+    res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_insert_index_in_range_in_memory_range_2(lst):
+    expected = [1, 5, 3, 0, None]
+
+    lst.add(1), lst.add(5), lst.add(0)
+    lst.insert(2, 3)
+
+    res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_insert_index_in_range_in_memory_range_3(lst):
+    expected = [3, 1, 5, 0, None]
+
+    lst.add(1), lst.add(5), lst.add(0)
+    lst.insert(0, 3)
+
+    res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_insert_index_in_range_in_memory_range_4(lst):
+    expected = [1, 5, 0, 3, 7]
+
+    lst.add(1), lst.add(5), lst.add(0), lst.add(7)
+    lst.insert(3, 3)
+
+    res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_insert_index_in_range_out_memory_range_1(lst):
+    expected = [3, 1, 5, 0, 7, 13, None]
+
+    lst.add(1), lst.add(5), lst.add(0), lst.add(7), lst.add(13)
+    lst.insert(0, 3)
+
+    res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_insert_index_in_range_out_memory_range_2(lst):
+    expected = [1, 5, 3, 0, 7, 13, None]
+
+    lst.add(1), lst.add(5), lst.add(0), lst.add(7), lst.add(13)
+    lst.insert(2, 3)
+
+    res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_insert_index_out_range_out_memory_range_1(lst):
+    expected = [1, 5, 0, 2, 9, 7, 6, 4, 8, 1, 3, None, None, None, None]
+
+    lst.add(1), lst.add(5), lst.add(0), lst.add(2), lst.add(9)
+    lst.add(7), lst.add(6), lst.add(4), lst.add(8), lst.add(1)
+    lst.insert(25, 3)
+
+    res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
