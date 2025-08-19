@@ -168,7 +168,6 @@ def test_pop_index_out_range_2(lst):
 
 
 def test_pop_index_no_int(lst):
-
     with pytest.raises(AssertionError):
         lst.pop('2')
 
@@ -204,7 +203,6 @@ def test_pop_index_in_range_3(lst):
 
 
 def test_insert_index_no_int(lst):
-
     with pytest.raises(AssertionError):
         lst.insert('2', 5)
 
@@ -304,5 +302,29 @@ def test_insert_index_out_range_out_memory_range_1(lst):
     lst.insert(25, 3)
 
     res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_find_elem_memory_empty(lst):
+    expected = -1
+
+    res = lst.find(1)
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_find_elem_memory_no_empty_1(lst):
+    expected = -1
+    lst.add(1), lst.add(5), lst.add(0), lst.add(2)
+    res = lst.find(13)
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_find_elem_memory_no_empty_2(lst):
+    expected = 2
+    lst.add(1), lst.add(5), lst.add(13), lst.add(2)
+    res = lst.find(13)
 
     assert res == expected, f'Ожидали:{expected}, получили:{res}'
