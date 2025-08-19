@@ -316,7 +316,9 @@ def test_find_elem_memory_empty(lst):
 
 def test_find_elem_memory_no_empty_1(lst):
     expected = -1
+
     lst.add(1), lst.add(5), lst.add(0), lst.add(2)
+
     res = lst.find(13)
 
     assert res == expected, f'Ожидали:{expected}, получили:{res}'
@@ -324,7 +326,78 @@ def test_find_elem_memory_no_empty_1(lst):
 
 def test_find_elem_memory_no_empty_2(lst):
     expected = 2
+
     lst.add(1), lst.add(5), lst.add(13), lst.add(2)
+
     res = lst.find(13)
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_count_entry_elem_memory_empty(lst):
+    expected = 0
+
+    res = lst.count_entry(13)
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_count_entry_elem_memory_no_empty_1(lst):
+    expected = 0
+
+    lst.add(1), lst.add(5), lst.add(0), lst.add(2)
+
+    res = lst.count_entry(13)
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_count_entry_elem_memory_no_empty_2(lst):
+    expected = 1
+
+    lst.add(1), lst.add(5), lst.add(0), lst.add(2)
+
+    res = lst.count_entry(2)
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_count_entry_elem_memory_no_empty_3(lst):
+    expected = 2
+
+    lst.add(13), lst.add(5), lst.add(0), lst.add(13)
+
+    res = lst.count_entry(13)
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_count_entry_elem_memory_no_empty_4(lst):
+    expected = 5
+
+    lst.add(3), lst.add(3), lst.add(3), lst.add(3), lst.add(3)
+
+    res = lst.count_entry(3)
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_clear_elem_memory_empty(lst):
+    expected = [None, None, None, None, None]
+
+    lst.clear()
+
+    res = lst.memory
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_clear_elem_memory_no_empty(lst):
+    expected = [None, None, None, None, None]
+
+    lst.add(3), lst.add(3), lst.add(3)
+    lst.clear()
+
+    res = lst.memory
 
     assert res == expected, f'Ожидали:{expected}, получили:{res}'
