@@ -86,6 +86,8 @@ class List:
         :param index: индекс удаляемого элемента
         :return: значение элемента по index
         """
+        assert isinstance(index, int), f'Ожидали class: int, получили:{type(index)}'
+
         if self.__count == 0:
             return
 

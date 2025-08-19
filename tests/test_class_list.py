@@ -137,3 +137,67 @@ def test_remove_memory_3(lst):
     res = lst.memory
 
     assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_pop_memory_empty(lst):
+    expected = None
+
+    res = lst.pop(1)
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_pop_index_out_range_1(lst):
+    expected = None
+
+    lst.add(1), lst.add(5), lst.add(0), lst.add(13), lst.add(-7)
+
+    res = lst.pop(150)
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_pop_index_out_range_2(lst):
+    expected = None
+
+    lst.add(1), lst.add(5), lst.add(0), lst.add(13), lst.add(-7)
+
+    res = lst.pop(-150)
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_pop_index_no_int(lst):
+
+    with pytest.raises(AssertionError):
+        lst.pop('2')
+
+
+def test_pop_index_in_range_1(lst):
+    expected = 1
+
+    lst.add(1), lst.add(5), lst.add(0), lst.add(13), lst.add(-7)
+
+    res = lst.pop(0)
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_pop_index_in_range_2(lst):
+    expected = 0
+
+    lst.add(1), lst.add(5), lst.add(0), lst.add(13), lst.add(-7)
+
+    res = lst.pop(2)
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
+
+
+def test_pop_index_in_range_3(lst):
+    expected = -7
+
+    lst.add(1), lst.add(5), lst.add(0), lst.add(13), lst.add(-7)
+
+    res = lst.pop(4)
+
+    assert res == expected, f'Ожидали:{expected}, получили:{res}'
